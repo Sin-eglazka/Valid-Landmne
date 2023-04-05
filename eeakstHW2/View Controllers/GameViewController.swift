@@ -22,7 +22,8 @@ class GameViewController: UIViewController, UIScrollViewDelegate, DismissWithChi
     private let labelClue = UILabel(), labelMines = UILabel()
     var delegate: DisableContinueButton?
     
-    init(difficultyGame: Difficulty){
+    init(difficultyGame: Difficulty, delegate: DisableContinueButton){
+        self.delegate = delegate
         self.difficulty = difficultyGame
         field = Field(difficulty: self.difficulty)
         size = field.getSize()

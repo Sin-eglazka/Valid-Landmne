@@ -148,16 +148,16 @@ class MainViewController: UIViewController {
     
     @objc
     private func startGameButtonPressed() {
-        gameViewController = GameViewController(difficultyGame: Settings.difficulty)
+        gameViewController = GameViewController(difficultyGame: Settings.difficulty, delegate: self)
         continueButton.backgroundColor = .blue
         continueButton.isEnabled = true
-        navigationController?.pushViewController(gameViewController ?? GameViewController(difficultyGame: Settings.difficulty), animated: true)
+        navigationController?.pushViewController(gameViewController ?? GameViewController(difficultyGame: Settings.difficulty, delegate: self), animated: true)
     }
     
     @objc
     private func continueGameButtonPressed() {
         if gameViewController != nil{
-            navigationController?.pushViewController(gameViewController ?? GameViewController(difficultyGame: Settings.difficulty), animated: true)
+            navigationController?.pushViewController(gameViewController ?? GameViewController(difficultyGame: Settings.difficulty, delegate: self), animated: true)
         }
     }
     
@@ -174,11 +174,7 @@ class MainViewController: UIViewController {
     }
     
     
-    @objc
-    private func groupButtonPressed() {
-        let shopViewController = ShopViewController()
-        navigationController?.pushViewController(shopViewController, animated: true)
-    }
+    
     
     
 }
